@@ -16,4 +16,14 @@ class ConnectFour
         puts "#{@grid[4][0]} | #{@grid[4][1]} | #{@grid[4][2]} | #{@grid[4][3]} | #{@grid[4][4]} | #{@grid[4][5]} | #{@grid[4][6]}"
         puts "#{@grid[5][0]} | #{@grid[5][1]} | #{@grid[5][2]} | #{@grid[5][3]} | #{@grid[5][4]} | #{@grid[5][5]} | #{@grid[5][6]}"
     end
+
+    def introduction(player1,player2)
+        puts "Welcome to connect four!"
+        puts "Player 1, please insert your name"
+        @player_1 = gets.chomp
+        puts "Player 2, please insert your name"
+        @player_2 = gets.chomp
+        puts "Every player should place his/her symbol in a socket where 
+        there is no emprty space beneath it. Have fun!"
+    end
 end
