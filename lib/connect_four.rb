@@ -26,4 +26,13 @@ class ConnectFour
         puts "Every player should place his/her symbol in a socket where 
         there is no emprty space beneath it. Have fun!"
     end
+
+    def player_choice(player_name,symbol)
+        loop do 
+            choice = gets.chomp 
+            return choice
+
+            puts "Input error"
+        end 
+    end
 end
