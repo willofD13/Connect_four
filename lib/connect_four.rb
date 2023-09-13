@@ -1,3 +1,4 @@
+require 'pry-byebug'
 class ConnectFour
     attr_accessor :player_1, :player_2
 
@@ -6,7 +7,9 @@ class ConnectFour
         @player_2 = player_2 
         @turn = turn
         @grid = grid
+        #binding.pry
     end
+    
 
     def display_board(grid)
         puts "#{@grid[0][0]} | #{@grid[0][1]} | #{@grid[0][2]} | #{@grid[0][3]} | #{@grid[0][4]} | #{@grid[0][5]} | #{@grid[0][6]}"
@@ -48,4 +51,9 @@ class ConnectFour
         coordinate = array[index].to_i 
         return coordinate 
     end
+
+    def add_to_board(coord_one,coord_two,symbol) 
+        @grid[coord_one][coord_two] = symbol
+    end
 end
+game = ConnectFour.new
