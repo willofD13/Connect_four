@@ -48,4 +48,14 @@ describe ConnectFour do
         end
     end
 
+    describe "#isolate_coordinate" do 
+        subject(:game_coordinates) { described_class.new }
+
+        it "returns coordinate as an integer" do 
+            string = '5 6'
+            index = 0
+            integer = game_coordinates.isolate_coordinate(string,index)
+            expect(integer).to eq(5)
+        end
+    end
 end
