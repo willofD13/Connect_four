@@ -30,9 +30,14 @@ class ConnectFour
     def player_choice(player_name,symbol)
         loop do 
             choice = gets.chomp 
-            return choice
+            verified_choice = verify_choice(choice)
+            return verified_choice
 
             puts "Input error"
         end 
+    end
+
+    def verify_choice(choice) 
+        return choice if choice.match?(/\s/)
     end
 end
