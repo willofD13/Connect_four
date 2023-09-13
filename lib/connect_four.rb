@@ -42,4 +42,10 @@ class ConnectFour
     def verify_choice(choice) 
         return choice if choice.match?(/\s/)
     end
+
+    def isolate_coordinate(string,index)
+        array = string.split 
+        coordinate = array[index].to_i 
+        return coordinate 
+    end
 end
