@@ -33,7 +33,7 @@ class ConnectFour
             verified_choice = verify_choice(choice)
             return verified_choice
 
-            puts "Input error"
+            puts "Input error.Please insert space between coordinates"
         end 
     end
 
