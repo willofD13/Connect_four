@@ -58,4 +58,17 @@ describe ConnectFour do
             expect(integer).to eq(5)
         end
     end
+
+    describe "#add_to_board" do 
+        subject(:game_board) { described_class.new} 
+
+        it "adds the player symbol in the coordinates place" do 
+            number1 = 5
+            number2 = 6
+            symbol = 'O'
+            board = game_board.instance_variable_get(:@grid)
+            game_board.add_to_board(number1,number2,symbol)
+            expect(board[number1][number2]).to eq(symbol)
+        end 
+    end
 end
