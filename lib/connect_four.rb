@@ -24,7 +24,9 @@ class ConnectFour
         puts "Player 2, please insert your name"
         @player_2 = gets.chomp
         puts "Every player should place his/her symbol in a socket where 
-        there is no emprty space beneath it. Have fun!"
+        there is no emprty space beneath it. First coordinate should be between 
+        0 and 5, second coordinate should be netween 0 and 6. The two coordinates 
+        should separated by space. Have fun!"
     end
 
     def player_choice(player_name,symbol)
