@@ -71,4 +71,16 @@ describe ConnectFour do
             expect(board[number1][number2]).to eq(symbol)
         end 
     end
+
+    describe "#check_for_winner" do 
+        subject(:end_game) { described_class.new } 
+        
+        it "exits the loop when a winning combination is found" do 
+            winning_message = "We have a winner"
+            expect(end_game).to receive(:puts).with(winning_message)
+            end_game.check_for_winner
+        end
+        
+    end
+
 end
