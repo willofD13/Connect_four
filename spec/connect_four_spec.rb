@@ -73,12 +73,39 @@ describe ConnectFour do
     end
 
     describe "#check_for_winner" do 
-        subject(:end_game) { described_class.new } 
+        subject(:end_game) { described_class.new("leon") } 
         
-        it "exits the loop when a winning combination is found" do 
-            winning_message = "We have a winner"
+        it "exits the loop with across combination" do 
+            array = Array.new(42)
+            array[0] = 'O'
+            array[1] = 'O'
+            array[2] = 'O'
+            array[3] = 'O'
+            winning_message = "The winner is leon"
             expect(end_game).to receive(:puts).with(winning_message)
-            end_game.check_for_winner
+            end_game.check_for_winner(array)
+        end
+
+        it "exits the loop with down combination" do 
+            array = Array.new(42)
+            array[0] = 'O'
+            array[7] = 'O'
+            array[14] = 'O'
+            array[21] = 'O'
+            winning_message = "The winner is leon"
+            expect(end_game).to receive(:puts).with(winning_message)
+            end_game.check_for_winner(array)
+        end
+
+        it "exits the loop with diagonal combination" do 
+            array = Array.new(42)
+            array[0] = 'O'
+            array[8] = 'O'
+            array[16] = 'O'
+            array[24] = 'O'
+            winning_message = "The winner is leon"
+            expect(end_game).to receive(:puts).with(winning_message)
+            end_game.check_for_winner(array)
         end
         
     end
