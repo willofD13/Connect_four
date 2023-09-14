@@ -45,6 +45,7 @@ class ConnectFour
             check_for_winner(flattened_grid)
             @turn += 1
         end 
+        puts "Hope you had fun!"
     end
 
     def player_choice(player_name)
