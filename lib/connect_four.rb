@@ -1,4 +1,4 @@
-require 'pry-byebug'
+#require 'pry-byebug'
 class ConnectFour
     attr_accessor :player_1, :player_2
 
@@ -55,5 +55,44 @@ class ConnectFour
     def add_to_board(coord_one,coord_two,symbol) 
         @grid[coord_one][coord_two] = symbol
     end
+
+    def check_for_winner(array) 
+        array.each_with_index do |v,i| 
+            if  v == "O" && array[i + 6] == v && array[i + 12] == v && array[i + 18] == v
+                puts "The winner is #{@player_1}"
+                break
+            elsif
+                v == "X" && array[i + 6] == v && array[i + 12] == v && array[i + 18] == v
+                puts "The winner is #{@player_2}"
+                break
+            elsif 
+                v == 'O' && array[i + 8] == v && array[i + 16] == v && array[i + 24] == v
+                puts "The winner is #{@player_1}"
+                break
+            elsif 
+                v == "X" && array[i + 8] == v && array[i + 16] == v && array[i + 24] == v
+                puts "The winner is #{@player_2}"
+                break
+            elsif
+                v == "O" && array[i + 7] == v && array[i + 14] == v && array[i + 21] == v
+                puts "The winner is #{@player_1}"
+                break
+            elsif
+                v == "X" && array[i + 7] == v && array[i + 14] == v && array[i + 21] == v
+                puts "The winner is #{@player_2}"
+                break
+            elsif 
+                v == "O" && array[i + 1] == v && array[i + 2] == v && array[i + 3] == v
+                puts "The winner is #{@player_1}"
+                break
+            elsif 
+                v == "X" && array[i + 1] == v && array[i + 2] == v && array[i + 3] == v
+                puts "The winner is #{@player_2}"
+                break
+            else
+             nil   
+            end
+        end
+    end
+
 end
-game = ConnectFour.new
