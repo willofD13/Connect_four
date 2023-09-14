@@ -32,7 +32,7 @@ class ConnectFour
         should separated by space. Have fun!"
     end
 
-    def player_choice(player_name,symbol)
+    def player_choice(player_name)
         loop do 
             choice = gets.chomp 
             verified_choice = verify_choice(choice)
