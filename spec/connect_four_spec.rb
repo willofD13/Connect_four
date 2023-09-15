@@ -127,5 +127,15 @@ describe ConnectFour do
         end
     end
 
+    describe "#play_game" do 
+
+        subject( :game ) { described_class.new }
+
+        it "exits the loop when game is over" do 
+            count = game.instance_variable_get(:@turn)
+            count = 43
+            expect(game).not_to receive(:turn_order)
+        end
+    end
 
 end
