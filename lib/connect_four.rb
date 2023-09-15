@@ -7,7 +7,6 @@ class ConnectFour
         @player_2 = player_2 
         @turn = turn
         @grid = grid
-        #binding.pry
     end
     
 
@@ -53,18 +52,18 @@ class ConnectFour
         loop do 
             choice = gets.chomp 
             verified_choice = verify_choice(choice)
-            return verified_choice
+            return verified_choice if verified_choice
 
-            puts "Input error.Please insert space between coordinates"
+            puts "Input error.Please fulfill the choice criteria"
         end 
     end
 
     def verify_choice(choice) 
-        return choice if choice.match?(/\s/)
+        array = choice.split 
+        return array if array[0].to_i.between?(0,5) && array[1].to_i.between?(0,6) && choice.match?(/\s/)
     end
 
-    def isolate_coordinate(string,index)
-        array = string.split 
+    def isolate_coordinate(array,index) 
         coordinate = array[index].to_i 
         return coordinate 
     end
