@@ -77,7 +77,7 @@ describe ConnectFour do
     describe "#check_for_winner" do 
         subject(:end_game) { described_class.new("leon") } 
         
-        xit "exits the loop with across combination" do 
+        it "exits the loop with across combination" do 
             array = Array.new(42)
             array[0] = 'O'
             array[1] = 'O'
@@ -88,7 +88,7 @@ describe ConnectFour do
             end_game.check_for_winner(array)
         end
 
-        xit "exits the loop with down combination" do 
+        it "exits the loop with down combination" do 
             array = Array.new(42)
             array[0] = 'O'
             array[7] = 'O'
@@ -99,7 +99,7 @@ describe ConnectFour do
             end_game.check_for_winner(array)
         end
 
-        xit "exits the loop with diagonal combination" do 
+        it "exits the loop with diagonal combination" do 
             array = Array.new(42)
             array[0] = 'O'
             array[8] = 'O'
@@ -110,6 +110,21 @@ describe ConnectFour do
             end_game.check_for_winner(array)
         end
         
+    end
+
+    describe "#turn_order" do 
+        subject(:game_order) { described_class.new }
+
+        before do 
+            allow(game_order).to receive(:player_choice)
+            allow(game_order).to receive(:isolate_coordinate)
+            allow(game_order).to receive(:add_to_board)
+            allow(game_order).to receive(:check_for_winner)
+        end
+
+        it "flattens the grid array" do 
+           expect { game_order.turn_order }.to change { game_order.instance_variable_get(:@turn)}.by(1)
+        end
     end
 
 
