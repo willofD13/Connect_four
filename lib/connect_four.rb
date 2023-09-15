@@ -33,19 +33,20 @@ class ConnectFour
     end
 
     def play_game
-        until @turn == 43 do 
-            coordinates = player_choice(@player_1) if @turn.odd?
-            coordinates = player_choice(@player_2) if @turn.even?
-            first_coord = isolate_coordinate(coordinates,0)
-            second_coord = isolate_coordinate(coordinates,1)
-            add_to_board(first_coord,second_coord,'O') if @turn.odd?
-            add_to_board(first_coord,second_coord,'X') if @turn.even?
-            display_board
-            flattened_grid = @grid.flatten 
-            check_for_winner(flattened_grid)
-            @turn += 1
-        end 
-        puts "Hope you had fun!"
+        turn_order until @turn == 43
+    end
+
+    def turn_order
+        coordinates = player_choice(@player_1) if @turn.odd?
+        coordinates = player_choice(@player_2) if @turn.even?
+        first_coord = isolate_coordinate(coordinates,0)
+        second_coord = isolate_coordinate(coordinates,1)
+        add_to_board(first_coord,second_coord,'O') if @turn.odd?
+        add_to_board(first_coord,second_coord,'X') if @turn.even?
+        display_board
+        flattened_grid = @grid.flatten 
+        check_for_winner(flattened_grid)
+        @turn += 1
     end
 
     def player_choice(player_name)
@@ -120,4 +121,3 @@ class ConnectFour
     end
 
 end
-
