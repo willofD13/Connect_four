@@ -30,17 +30,21 @@ describe ConnectFour do
     describe "#verify_choice" do 
 
         context "when coordinates have space between them" do
-            subject(:game_verify) { described_class.new }
+            subject(:game_verify) { described_class.new('leon') }
 
-            xit "returns player's choice" do 
+
+            it "returns player's choice" do
+                valid_input = '5 6'
+                name = game_verify.instance_variable_get(:@player_1) 
                 expect(game_verify).to receive(:verify_choice).and_return(valid_input)
-                game_verify.player_choice(valid_input)
+                game_verify.player_choice(name)
             end 
 
-            xit "returns nil when there is no space" do 
+            it "returns nil when there is no space" do 
+                name = game_verify.instance_variable_get(:@player_1)
                 invalid_input = '56'
                 expect(game_verify).to receive(:verify_choice).and_return(nil)
-                game_verify.player_choice(invalid_input)
+                game_verify.player_choice(name)
             end
 
         end
@@ -49,7 +53,7 @@ describe ConnectFour do
     describe "#isolate_coordinate" do 
         subject(:game_coordinates) { described_class.new }
 
-        xit "returns coordinate as an integer" do 
+        it "returns coordinate as an integer" do 
             string = '5 6'
             index = 0
             integer = game_coordinates.isolate_coordinate(string,index)
@@ -60,7 +64,7 @@ describe ConnectFour do
     describe "#add_to_board" do 
         subject(:game_board) { described_class.new} 
 
-        xit "adds the player symbol in the coordinates place" do 
+        it "adds the player symbol in the coordinates place" do 
             number1 = 5
             number2 = 6
             symbol = 'O'
