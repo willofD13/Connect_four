@@ -121,7 +121,3 @@ class ConnectFour
 
 end
 
-game = ConnectFour.new
-game.introduction
-game.display_board
-game.play_game
