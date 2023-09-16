@@ -25,6 +25,21 @@ describe ConnectFour do
                 game_choice.player_choice(name)
             end
         end
+
+        context "when player gives invalid input" do 
+            before do 
+                invalid_input = '55'
+                valid_input = '5 5'
+                allow(game_choice).to receive(:gets).and_return(invalid_input, valid_input)
+            end
+
+            it "displays error message" do 
+                name = 'james'
+                error_message = "Input error.Please fulfill the choice criteria"
+                expect(game_choice).to receive(:puts).with(error_message).once
+                game_choice.player_choice(name)
+            end
+        end
     end
 
     describe "#verify_choice" do 
