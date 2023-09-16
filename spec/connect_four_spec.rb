@@ -29,22 +29,29 @@ describe ConnectFour do
 
     describe "#verify_choice" do 
 
-        context "when coordinates have space between them" do
-            subject(:game_verify) { described_class.new('leon') }
+        subject(:game_verify) { described_class.new('leon') }
+
+        context "when given valid input as argument" do
+            
+            let(:valid_input) { "5 6" }
+            let(:verified_input) { [5,6] }
 
 
-            it "returns player's choice" do
-                valid_input = '5 6'
-                name = game_verify.instance_variable_get(:@player_1) 
-                expect(game_verify).to receive(:verify_choice).and_return(valid_input)
-                game_verify.player_choice(name)
+            it "returns valid input" do
+                expect(game_verify).to receive(:verify_choice).with(valid_input).and_return(verified_input)
+                game_verify.verify_choice(valid_input)
             end 
+        end
+        
+        context "when given invalid input" do
 
-            it "returns nil when there is no space" do 
+            let(:invalid_input) { "56" }
+
+
+            it "returns nil " do 
                 name = game_verify.instance_variable_get(:@player_1)
-                invalid_input = '56'
-                expect(game_verify).to receive(:verify_choice).and_return(nil)
-                game_verify.player_choice(name)
+                expect(game_verify).to receive(:verify_choice).with(invalid_input).and_return(nil)
+                game_verify.verify_choice(invalid_input)
             end
 
         end
